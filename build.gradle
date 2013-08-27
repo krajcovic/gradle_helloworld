@@ -1,5 +1,32 @@
+import java.beans.IntrospectionException;
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
+
+task intro(dependsOn: 'hello') << {
+	println("I'm gradle")
+}
+
+task hello {
+	doLast {
+		println('Hello world')
+	}
+}
+
+task hello2 << {
+	println("Hello world2")
+}
+
+task upper << {
+	String someString = 'mY_nAmE'
+	println "Originla: " + someString
+	println 'Upper case: ' + someString.toUpperCase()
+}
+
+task count << {
+	4.times { print "$it " }
+	println ""
+}
 
 sourceCompatibility = 1.5
 version = '1.0'
